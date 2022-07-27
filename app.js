@@ -1,6 +1,3 @@
-let basicPlayer = prompt("Select Rock, Paper, or Scissors");
-let player = basicPlayer.toUpperCase();
-
 let choices = ['ROCK', 'PAPER', 'SCISSORS'];
 
 function computerPlay(choices) {
@@ -8,25 +5,73 @@ function computerPlay(choices) {
     return computer
 }
 
-function playRound(playerSelection, computerSelection) {
+function playRound(computerSelection) {
+    let playerSelection = prompt("Select Rock, Paper, or Scissors").toUpperCase();
     if (playerSelection === computerSelection) {
-        alert("Its a tie!");
+        console.log("Its a tie!");
     } else if (playerSelection === 'ROCK' && computerSelection === 'PAPER') {
-        alert("You lose! Computer chose Paper.");
+        console.log("You lose! Computer chose Paper.");
     } else if (playerSelection === 'ROCK' && computerSelection === 'SCISSORS') {
-        alert("You win! Computer chose Scissors.");
+        console.log("You win! Computer chose Scissors.");
     } else if (playerSelection === 'PAPER' && computerSelection === 'ROCK') {
-        alert("You win! Computer chose Rock.");
+        console.log("You win! Computer chose Rock.");
     } else if (playerSelection === 'PAPER' && computerSelection === 'SCISSORS') {
-        alert("You lose! Computer chose Scissors.");
+        console.log("You lose! Computer chose Scissors.");
     } else if (playerSelection === 'SCISSORS' && computerSelection === 'PAPER') {
-        alert("You win! Computer chose Paper.");
+        console.log("You win! Computer chose Paper.");
     } else if (playerSelection === 'SCISSORS' && computerSelection === 'ROCK') {
-        alert("You lose! Computer chose Rock");
-    } else { alert("Error, try again") }
+        console.log("You lose! Computer chose Rock");
+    } else { console.log("Error, try again") }
 }
 
-const playerSelection = player;
-const computerSelection = computerPlay(choices);
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let computerSelection = computerPlay(choices);
+        playRound(computerSelection);
+    }
+}
 
-playRound(playerSelection, computerSelection)
+game()
+
+// let choicesObject = {
+//   'rock' : {
+//     'rock' : 'draw',
+//     'scissor' : 'win',
+//     'paper' : 'lose'
+//   },
+//   'scissor' : {
+//     'rock' : 'lose',
+//     'scissor' : 'draw',
+//     'paper' : 'win'
+//   },
+//   'paper' : {
+//     'rock' : 'win',
+//     'scissor' : 'lose',
+//     'paper' : 'draw'
+//   }
+// }
+
+
+// function game(input){
+//     let choices = ["rock", "paper", "scissor"];
+//     let num = Math.floor(Math.random()*3);
+
+//     let computerChoice = choices[num];
+//         let result
+
+//     switch(choicesObject[input][computerChoice]){
+//         case 'win':
+//         result = "YOU WIN";
+//         break;
+//       case 'lose':
+//         result = "YOU LOSE";
+//         break;
+//       default:
+//         result = "DRAW";
+//         break;
+//     }
+//     console.log(result);
+//         //document.getElementById('result').textContent = result;
+// }
+
+// game('paper');
